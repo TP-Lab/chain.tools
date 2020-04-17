@@ -26,7 +26,17 @@ void tools::transfer(name from, name to, asset quantity, string memo) {
         return;
     }
     if (from == FLASH_LOAN_CODE) {
+        //TODO BUSINESS
+        //TODO BUSINESS
+//        check(false, "go here");
 
+        auto pay_quantity = asset{int64_t((1 + 0.003) * quantity.amount), quantity.symbol};
+        action{
+                permission_level{_self, "active"_n},
+                _code,
+                "transfer"_n,
+                std::make_tuple(_self, FLASH_LOAN_CODE, pay_quantity, std::string("repay:"))
+        }.send();
         return;
     }
 }
@@ -182,6 +192,15 @@ void tools::test(uint64_t id, uint64_t pid, uint64_t type) {
             }
         }
     }
+}
+
+void tools::testfloan(eosio::name code, asset quantity) {
+    action{
+            permission_level{_self, "active"_n},
+            FLASH_LOAN_CODE,
+            "floan"_n,
+            std::make_tuple(code, quantity, _self)
+    }.send();
 }
 
 tools::~tools() {

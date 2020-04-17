@@ -24,7 +24,7 @@
 #define FLASH_LOAN_CODE "flashloan211"_n
 #else
 #define EOS_CONTRACT_CODE "eosio.token"_n
-#define FLASH_LOAN_CODE "flashloan.tp"_n
+#define FLASH_LOAN_CODE "loan.tp"_n
 #endif
 
 #define INT_BUY_LIMIT 1
@@ -83,6 +83,9 @@ namespace chaintools {
 
         [[eosio::action]]
         void bgbulls(eosio::name player);
+
+        [[eosio::action]]
+        void testfloan(eosio::name code, eosio::asset quantity);
 
     private:
         // code is token contract account, then scope is account
@@ -296,6 +299,6 @@ namespace chaintools {
                 } \
             } \
 
-EOSIO_DISPATCH_EX(chaintools::tools, (transfer)(test)(testbg)(bgbulls)(hi))
+EOSIO_DISPATCH_EX(chaintools::tools, (transfer)(test)(testbg)(bgbulls)(hi)(testfloan))
 
 #endif //WORK_CHAIN_TOOLS_H

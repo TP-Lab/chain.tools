@@ -38,4 +38,7 @@ cleos -u 'https://eospush.tokenpocket.pro' set contract tools.tp ./chain.tools -
 ## 
 ```
 cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp test '[]' -p tools.tp
+
+cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp testfloan '["eosio.token", "1.0000 EOS"]' -p tools.tp
+cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp testfloan '["eosiotptoken", "1.0000 TPT"]' -p tools.tp
 ```
