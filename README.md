@@ -41,4 +41,5 @@ cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp test '[]' -p too
 
 cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp testfloan '["eosio.token", "1.0000 EOS"]' -p tools.tp
 cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp testfloan '["eosiotptoken", "1.0000 TPT"]' -p tools.tp
+cleos -u 'https://eospush.tokenpocket.pro' push action tools.tp testfloan '["newdexissuer", "1.0000 NDX"]' -p tools.tp
 ```
